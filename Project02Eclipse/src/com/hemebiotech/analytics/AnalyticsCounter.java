@@ -6,10 +6,16 @@ import java.io.FileWriter;
 import java.util.List;
 import java.util.Map;
 
+/***
+ * main class that starts the program
+ * @author Talia
+ * @version 1.0
+ * @since 2023-03
+ */
 public class AnalyticsCounter {
 
     public static void main(String args[]) throws Exception {
-        // object of the class ReadSymptomDataFromFile with the filepath
+
         ReadSymptomDataFromFile symptomProcessor = new ReadSymptomDataFromFile("symptoms.txt");
 
         List<String> symptomList = symptomProcessor.GetSymptoms();
