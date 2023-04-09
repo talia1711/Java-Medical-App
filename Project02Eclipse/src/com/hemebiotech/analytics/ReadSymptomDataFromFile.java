@@ -6,14 +6,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * Simple brute force implementation
+/***
+ * this class has the implementation of the methods defined in the iSymptomReader
+ * @author Talia
+ * @version 1.0
+ * @since 2023-03
  */
+
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
     private String filepath;
 
     /**
+     * this method recieves the filepath in the input file
+     *
      * @param filepath a full or partial path to file with symptom strings in it, one per line
      */
 
@@ -23,6 +29,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     }
 
+    /***
+     * this method reads the input file defined by the filepath and stores each line that represents a symptom in the list of strings
+     * returns a list of symptoms (String)
+     * @author Talia
+     * @version 1.0
+     * @since 2023-03
+     */
     @Override
     public List<String> GetSymptoms() {
         ArrayList<String> result = new ArrayList<String>();
@@ -45,6 +58,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     }
 
+    /***
+     * this function receives a list of symptoms and returns a map that represents a symptoms with the number of occurrences
+     * @author Talia
+     * @version 1.0
+     * @since 2023-03
+     */
     @Override
     public Map<String, Integer> GetSymptomsMap(List<String> input) {
         Map<String, Integer> result = new TreeMap<String, Integer>();
@@ -62,21 +81,15 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
         System.out.println(result);
 
-
-        //Receive a list of String from input
-        //Create for loop on the input list to gain every symptom
-        //Inside the loop logic
-        //Check if the symptom exists in result
-        //if yes = Get the integer value then increment
-        //Then put the symptom and incremented value in the map
-
-        //If no = else statement to add the symptom with the value 1
-
-
         return result;
     }
 
-
+    /***
+     * this writes the symptoms and the number of occurrences to a text file
+     * @author Talia
+     * @version 1.0
+     * @since 2023-03
+     */
     @Override
     public void writeResult(Map<String, Integer> input) {
 
@@ -99,11 +112,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
         }
     }
 }
-
-
-//Create a for loop to get the values from the TreeMap
-//input represents the values from the TreeMap
-//Get the key and value from each iteration of the map and write to the file
 
 
 
