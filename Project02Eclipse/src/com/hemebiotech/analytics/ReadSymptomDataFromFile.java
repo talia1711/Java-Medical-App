@@ -18,7 +18,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
     private String filepath;
 
     /**
-     * this method recieves the filepath in the input file
+     * this method receives the filepath in the input file
      *
      * @param filepath a full or partial path to file with symptom strings in it, one per line
      */
@@ -58,59 +58,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     }
 
-    /***
-     * this function receives a list of symptoms and returns a map that represents a symptoms with the number of occurrences
-     * @author Talia
-     * @version 1.0
-     * @since 2023-03
-     */
-    @Override
-    public Map<String, Integer> GetSymptomsMap(List<String> input) {
-        Map<String, Integer> result = new TreeMap<String, Integer>();
 
-        for (String currentSymptoms : input) {
-
-            if (result.containsKey(currentSymptoms)) {
-                Integer value = result.get(currentSymptoms);
-                result.put(currentSymptoms, ++value);
-            } else {
-                result.put(currentSymptoms, 1);
-
-            }
-        }
-
-        System.out.println(result);
-
-        return result;
-    }
-
-    /***
-     * this writes the symptoms and the number of occurrences to a text file
-     * @author Talia
-     * @version 1.0
-     * @since 2023-03
-     */
-    @Override
-    public void writeResult(Map<String, Integer> input) {
-
-        BufferedWriter writer = null;
-
-        try {
-            writer = new BufferedWriter(new FileWriter("result.out"));
-
-            for (Map.Entry<String, Integer> entry : input.entrySet()) {
-
-                writer.write(entry.getKey() + ":" + entry.getValue());
-
-                writer.newLine();
-
-            }
-            writer.close();
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
 
 
